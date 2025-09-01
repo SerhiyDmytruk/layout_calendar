@@ -17,6 +17,8 @@ $days-in-month: 31; // Default month length
   gap: $gap-size;
   list-style: none;
   counter-reset: day-counter;
+  padding-left: $padding-size;
+  padding-right: $padding-size;
 
   &__day {
     border: $border-size solid black;
@@ -35,6 +37,7 @@ $days-in-month: 31; // Default month length
       transition:
         background-color 0.5s,
         transform 0.5s;
+      cursor: pointer;
     }
 
     &::before {
