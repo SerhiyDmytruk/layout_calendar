@@ -32,10 +32,13 @@ $days-in-month: 31; // Default month length
     &:hover {
       background-color: #ffbfcb;
       transform: translateY(-20px);
-      transition: all, 0.5s;
+      transition:
+        background-color 0.5s,
+        transform 0.5s;
     }
 
     &::before {
+      font-family: Arial, Helvetica, sans-serif;
       content: counter(day-counter);
       font-size: 30px;
     }
@@ -48,11 +51,11 @@ $days-in-month: 31; // Default month length
     thu: 4,
     fri: 5,
     sat: 6,
-    sun: 0 // The last one is for the default margin,,,,
+    sun: 0 // The last one is for the default margin,,,,,
   );
-  
+
   @each $day, $offset in $start-days {
-    &--start-#{$day} .calendar__day:first-child {
+    &--start-day-#{$day} .calendar__day:first-child {
       @if $offset > 0 {
         margin-left: ($day-size + $gap-size) * $offset;
       } @else {
@@ -63,7 +66,7 @@ $days-in-month: 31; // Default month length
 
   // Month-length modifier
   @for $i from 28 through 31 {
-    &--month-#{$i} .calendar__day:nth-child(n + #{$i + 1}) {
+    &--month-length-#{$i} .calendar__day:nth-child(n + #{$i + 1}) {
       display: none;
     }
   }
